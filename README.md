@@ -28,4 +28,4 @@ Standards: 			    HTML5, CSS3/LESS, Microformats
 
 Components:			    Bootstrap, Bootswatch, Modernizr/Respond, jQuery
 
-Software:			    Atom, Codekit, Fireworks
+Software:			    Atom, Codekit
