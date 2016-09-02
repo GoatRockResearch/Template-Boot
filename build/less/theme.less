@@ -1,0 +1,452 @@
+//  Theme
+//  L|5
+//  1.0.2016.06
+//  ========================================
+
+//  Font
+//  ========================================
+
+@web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic";
+.web-font(@path) {@import url("@{path}");}
+.web-font(@web-font-path);
+
+
+//  Base
+//  ========================================
+
+body {
+    padding: 70px 0 0 0;
+}
+caption {
+    font-family: @headings-font-family;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+.h1,.h2,.h3,.h4,.h5,.h6,
+h1,h2,h3,h4,h5,h6 {
+    margin-top: @line-height-computed;
+    margin-bottom: (@line-height-computed / 2);
+    .small,
+    small {
+        font-size: 65%;
+    }
+}
+.h4,.h5,.h6,
+h4,h5,h6 {
+    .small,
+    small {
+        font-size: 75%;
+    }
+}
+th {
+    font-family: @headings-font-family;
+    font-variant: small-caps;
+    text-align: left;
+}
+dt {
+    font-family: @headings-font-family;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+dd {
+    margin-bottom: (@line-height-computed / 3.50);
+}
+
+
+//  Structure
+//  ========================================
+
+.navbar {
+    &-brand {
+        font-size: ceil((@font-size-base * 2));
+        line-height: 0.5;
+        letter-spacing: 0.05em;
+        font-variant: small-caps;
+    }
+    &-nav {
+        font-weight: bold;
+		@media (min-width: @screen-md-min) {
+			> li > a {
+				padding-right: 30px;
+				padding-left: 30px;
+			}
+		}
+    }
+}
+#content {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    border-bottom: @border-size-large solid #e4e4e4;
+}
+section {
+    padding: (@line-height-computed * 1.25) 0;
+}
+#colophon {
+    font-size: @font-size-small;
+    line-height: @line-height-small;
+    color: @gray;
+    margin: 0;
+    padding: (@line-height-computed * 1.25) 0;
+    border-top: @border-size-base solid @gray-lighter;
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        border-bottom: 0;
+    }
+}
+
+
+//  Components
+//  ========================================
+
+//  Header
+.jumbotron {
+    margin-bottom: 0;
+    padding-top: (@line-height-computed * 0.625);
+    padding-bottom: (@line-height-computed * 0.625);
+    h1 {
+        margin: 0;
+    }
+    p {
+        color: @jumbotron-heading-color;
+    }
+}
+
+//  .Modules
+.module {
+    margin: (@line-height-computed * 1.25) 0;
+    padding: @line-height-computed @padding-large-horizontal;
+    .card();
+}
+.card {
+	background: #fff;
+	border: 1px solid transparent;
+	.box-shadow(0 1px 1px rgba(0,0,0,.09));
+}
+.box {
+    margin: 0 0 (@line-height-computed * 1.25) 0;
+    padding: (@line-height-computed / 2) @padding-xs-horizontal;
+    border: @border-size-large solid @input-border
+}
+//  .Btn
+.btn {
+    margin-top: (@line-height-computed * 1.25);
+    border-width: 2px;
+}
+.btn:active {
+    .box-shadow(none);
+}
+
+//  Indicators
+.close {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.4;
+    &:focus,
+    &:hover {
+        color: #fff;
+        opacity: 1;
+    }
+}
+.alert {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #fff;
+    }
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+        margin-top: 0;
+    }
+    p {
+        font-size: @font-size-large;
+        margin-bottom: (@line-height-computed * 1.125);
+    }
+    p:last-child {
+        margin-bottom: 0;
+    }
+    .alert-link {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+// Forms
+.form-control,
+input {
+    border-width: 2px;
+    .box-shadow(none);
+    &:focus {
+        .box-shadow(none);
+    }
+}
+.has-warning {
+    &.radio label,
+    &.checkbox label,
+    &.checkbox-inline label,
+    &.radio-inline label,
+    .checkbox,
+    .checkbox-inline,
+    .control-label,
+    .form-control-feedback,
+    .help-block,
+    .radio,
+    .radio-inline {
+        color: @brand-warning;
+    }
+    .form-control,
+    .form-control:focus {
+        border: 2px solid @brand-warning;
+    }
+    .input-group-addon {
+        border-color: @brand-warning;
+    }
+}
+.has-error {
+     &.radio label,
+    &.checkbox label,
+    &.checkbox-inline label,
+    &.radio-inline label,
+    .checkbox,
+    .checkbox-inline,
+    .control-label,
+    .form-control-feedback,
+    .help-block,
+    .radio,
+    .radio-inline {
+        color: @brand-danger;
+    }
+    .form-control,
+    .form-control:focus {
+        border: 2px solid @brand-danger;
+    }
+    .input-group-addon {
+        border-color: @brand-danger;
+    }
+}
+.has-success {
+     &.radio label,
+    &.checkbox label,
+    &.checkbox-inline label,
+    &.radio-inline label,
+    .checkbox,
+    .checkbox-inline,
+    .control-label,
+    .form-control-feedback,
+    .help-block,
+    .radio,
+    .radio-inline {
+        color: @brand-success;
+    }
+    .form-control,
+    .form-control:focus {
+        border: 2px solid @brand-success;
+    }
+    .input-group-addon {
+        border-color: @brand-success;
+    }
+}
+
+//  Navs
+.nav {
+    .open > a,
+    .open > a:focus,
+    .open > a:hover {
+        border-color: transparent;
+    }
+}
+.pager {
+    a,
+    a:hover {
+        color: #fff;
+    }
+    .disabled {
+        & > a,
+        & > a:focus,
+        & > a:hover,
+        & > span {
+            background-color: @pagination-disabled-bg;
+        }
+    }
+}
+
+//  Progress Bar
+.progress {
+    height: 10px;
+    .box-shadow(none);
+    .progress-bar {
+        font-size: 10px;
+        line-height: 10px;
+    }
+}
+
+//  Containers
+.well {
+    .box-shadow(none);
+}
+a.list-group-item {
+    &.active,
+    &.active:focus,
+    &.active:hover {
+        border-color: @list-group-border;
+    }
+    &-success {
+        &.active {
+            background-color: @state-success-bg;
+        }
+        &.active:focus,
+        &.active:hover {
+            background-color: darken(@state-success-bg, 5%);
+        }
+    }
+    &-warning {
+        &.active {
+            background-color: @state-warning-bg;
+        }
+        &.active:focus,
+        &.active:hover {
+            background-color: darken(@state-warning-bg, 5%);
+        }
+    }
+    &-danger {
+        &.active {
+            background-color: @state-danger-bg;
+        }
+        &.active:focus,
+        &.active:hover {
+            background-color: darken(@state-danger-bg, 5%);
+        }
+    }
+}
+.panel {
+    &-default {
+        .close {
+            color: @text-color;
+        }
+    }
+}
+.modal {
+    .close {
+        color: @text-color;
+    }
+}
+.popover {
+    color: @text-color;
+}
+
+
+//  Utilities
+//  ========================================
+
+//  Context
+.text-ampersand {
+    font-family: @font-family-serif;
+    font-style: italic;
+}
+.text-default,
+.text-default:hover {
+    color: @gray-light;
+}
+.text-primary,
+.text-primary:hover {
+    color: @brand-primary;
+}
+.text-success,
+.text-success:hover {
+    color: @brand-success;
+}
+.text-danger,
+.text-danger:hover {
+    color: @brand-danger;
+}
+.text-warning,
+.text-warning:hover {
+    color: @brand-warning;
+}
+.text-info,
+.text-info:hover {
+    color: @brand-info;
+}
+.text-scroll {
+    height: 100px;
+    overflow: scroll;
+}
+.reset-margin-top {
+    margin-top: 0;
+}
+
+//  Customs for Flask
+.gold {
+    .box();
+}
+.activities {
+    .box();
+    .text-scroll();
+}
+
+
+//  Helpers
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+.browserupgrade {
+    color: @gray-dark;
+    background: @gray-light;
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+.invisible {
+    visibility: hidden;
+}
+
+//  Tab-Index
+#branding:focus,
+#content:focus {
+    outline: none;
+}
+
+//  MS Windows/Phone
+@-webkit-viewport   {width: device-width;}
+@-moz-viewport      {width: device-width;}
+@-ms-viewport       {width: device-width;}
+@-o-viewport        {width: device-width;}
+@viewport           {width: device-width;}
+
+//  Box-Sizing
+.flex-space {
+    display: flex;
+    justify-content: space-around;
+}
+.box-sizing(@sizing: border-box) {
+    box-sizing: @sizing;
+}
+
+//  Custom ClearFix
+.group:after,
+.group:before {
+    content: " ";
+    display: table;
+}
+.group:after {
+    clear: both;
+}
+.group {
+    *zoom: 1;
+}
